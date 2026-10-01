@@ -1,0 +1,46 @@
+#Listing out variables 
+
+enter_expenses = True
+expenses = 0
+expenses_list = []
+small_expenses = 0
+medium_expenses = 0
+large_expenses = 0
+
+#Loop to collect expenses and check for errors
+while enter_expenses == True:
+    
+    expenses = float(input("Enter an expense or 0 to finish: "))
+    
+    while expenses < 0:
+        print("Not a valid number, please enter a correct amount")
+        expenses = float(input("Enter an expense or 0 to finish: "))
+
+    if expenses == 0:
+        enter_expenses = False
+
+    else:
+        expenses_list.append(expenses)
+
+
+#Grouping numbers into small/ medium/ large
+for current_number in expenses_list: 
+    if current_number < 25:
+        small_expenses += 1
+    elif current_number >= 25 and current_number <= 100:
+        medium_expenses += 1
+    elif current_number > 100:
+        large_expenses += 1
+
+#Printing all the information
+print("Expense Summary \n--------------")
+print(f"Number of Expenses: {len(expenses_list)}")
+print(f"Total: ${sum(expenses_list)}")
+print(f"Average: ${sum(expenses_list) / len(expenses_list)}")
+print(f"Smallest Expense: ${min(expenses_list)}")
+print(f"Largest Expense: ${max(expenses_list)}")
+
+
+print(f"Small expenses: {small_expenses}")
+print(f"Medium Expenses: {medium_expenses}")
+print(f"Large Expenses: {large_expenses}")
