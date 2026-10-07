@@ -1,5 +1,7 @@
 import random
 
+
+#Creating function to get and validate players choice
 def get_player_choice():
     player_choice = str(input("Enter rock, paper, or scissors: ")).lower()
 
@@ -9,6 +11,8 @@ def get_player_choice():
     
     return player_choice
     
+
+#Creating function to see who won the game
 def determine_winner(PC, CC):
    if PC == CC:
     game_result = "Tie"
@@ -20,7 +24,7 @@ def determine_winner(PC, CC):
    return game_result
 
 
-
+#Announcing variables needed to run the game
 computer_wins = 0
 player_wins = 0
 options = ["rock", "paper", "scissors"]
@@ -31,6 +35,7 @@ winning_moves = {
 }
 
 
+#Start of the game including how many rounds user wants to play
 print("Welcome to Rock, Paper, Scissors!")
 
 round_num = int(input("How many rounds do you want to play? (Odd number): "))
@@ -40,6 +45,7 @@ while (round_num % 2 == 0):
     round_num = int(input("How many rounds do you want to play? (Odd number): "))
 
 
+#Actually running the game for x number of rounds
 while (computer_wins + player_wins) < round_num:
    player_choice = get_player_choice()
    computer_choice = random.choice(options)
@@ -56,7 +62,7 @@ while (computer_wins + player_wins) < round_num:
 
 
 
-
+#End of the game scoreboard
 print("----------------------------")
 print(f"Score -- You: {player_wins} | Computer: {computer_wins}")
 if player_wins > computer_wins:
